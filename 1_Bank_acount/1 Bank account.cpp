@@ -37,7 +37,7 @@ long double With_Amount=0;
 cout<<"Enter Amount :";
 cin>>With_Amount;
 cout<<endl;
-balance-=With_Amount;
+balance+=With_Amount;
 }
 
 void bank_account::check_balance(){
@@ -136,3 +136,4 @@ menu:
 
         }
         return 0; }
+
