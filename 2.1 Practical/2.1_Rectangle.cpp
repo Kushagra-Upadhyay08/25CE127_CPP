@@ -1,5 +1,4 @@
 #include<iostream>
-#include<time.h>
 using namespace std;
 
 class Rectangle{
@@ -60,7 +59,7 @@ int main(){
     
 
     menu:
-    sleep(1);
+    
     cout<<"\nEnter 1 for add Rectangle"<<endl;
     cout<<"Enter 2 for find the parameter of Rectangle"<<endl;
     cout<<"Enter 3 for find Area of  Rectangle"<<endl;
@@ -161,4 +160,5 @@ int main(){
 
 
     return 0;
+
 } 
