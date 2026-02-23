@@ -1,22 +1,38 @@
 #include "header.h"
-#include<iostream>
-#include<string>
-#include<cmath>
+#include <cmath>
 
-using namespace std;
-
-float loan::calc_emi(){
-    float R=annual_intrest/(12*100);
-    int T=loan_tenure*12;
-    float emi= loan_amount*R / (1 - pow(1+R,-T));
-    return emi;
+Loan::Loan() {
+    loanID = 0;
+    applicantName = "Anamika";
+    loanAmount = 0;
+    annualInterestRate = 0.0;
+    tenureMonths = 0;
 }
 
-void loan::display(){
-        cout<<"Loan ID: "<<loan_id<<endl;
-        cout<<"Applicant Name: "<<applicant_name<<endl;
-        cout<<"Loan Amount: "<<loan_amount<<endl;
-        cout<<"Annual Intrest: "<<annual_intrest<<endl;
-        cout<<"Loan Tenure: "<<loan_tenure<<endl;
-    }
-   
+Loan::Loan(int id, string name, double amount, double rate, int tenure) {
+    loanID = id;
+    applicantName = name;
+    loanAmount = amount;
+    annualInterestRate = rate;
+    tenureMonths = tenure;
+}
+
+double Loan::calculateEMI() {
+    double R = annualInterestRate / (12 * 100);
+
+    if (R == 0) return loanAmount / tenureMonths;
+
+    double EMI = (loanAmount * R * pow(1 + R, tenureMonths)) /
+                 (pow(1 + R, tenureMonths) - 1);
+    return EMI;
+}
+
+void Loan::displayDetails() {
+    cout << "\n--- Loan Details ---\n";
+    cout << "Loan ID: " << loanID << endl;
+    cout << "Applicant Name: " << applicantName << endl;
+    cout << "Loan Amount: " << loanAmount << endl;
+    cout << "Interest Rate: " << annualInterestRate << "%" << endl;
+    cout << "Tenure (in Months): " << tenureMonths << endl;
+    cout << "Monthly EMI: " << calculateEMI() << endl;
+}
