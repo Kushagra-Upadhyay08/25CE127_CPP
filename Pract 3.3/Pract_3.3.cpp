@@ -11,7 +11,7 @@ public:
     static int count;
 
     void creat_acc(){
-        cin.ignore(); // fix getline issue
+        cin.ignore(); 
         cout<<"Enter Account Holder's name : ";
         getline(cin,name);
 
