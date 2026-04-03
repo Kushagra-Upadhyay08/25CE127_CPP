@@ -97,7 +97,7 @@ int main(){
             bank *from = NULL;
             bank *to = NULL;
 
-            // ✅ single loop instead of nested loop
+            
             for(i = 0; i < bank::count; i++){
                 if(ptr[i].search(sender))
                     from = &ptr[i];
